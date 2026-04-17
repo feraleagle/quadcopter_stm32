@@ -1,0 +1,32 @@
+[
+  {
+    "file": "application/main.cpp",
+    "arguments": [
+      "arm-none-eabi-g++",
+      "-mcpu=cortex-m4",
+      "-mthumb",
+      "-mfpu=fpv4-sp-d16",
+      "-mfloat-abi=hard",
+      "-Og",
+      "-g3",
+      "-Wall",
+      "-fdata-sections",
+      "-ffunction-sections",
+      "-DSTM32F411xE",
+      "-D__FPU_PRESENT=1",
+      "-D__FPU_USED=1",
+      "-Idrivers/stm32f4xx",
+      "-Idrivers/cmsis",
+      "-Icore/src",
+      "-Icore/inc",
+      "-Imiddlewares/freertos/include",
+      "-Imiddlewares/freertos/portable/GCC/ARM_CM4F",
+      "-c",
+      "application/main.cpp",
+      "-o",
+      "build/main.o"
+    ],
+    "directory": "/home/eagle/programming/github_projects/__test__/FREERTOS/Project 01",
+    "output": "build/main.o"
+  }
+]
