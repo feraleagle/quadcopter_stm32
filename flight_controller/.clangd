@@ -1,0 +1,18 @@
+# flight_controller/.clangd
+CompileFlags:
+  Add:
+    - --target=arm-none-eabi
+    - -mcpu=cortex-m4
+    - -mfpu=fpv4-sp-d16
+    - -mfloat-abi=hard
+    - -DSTM32F411xE
+  Remove:
+    - -mthumb  # clangd handles this via --target
+
+lspconfig.clangd.setup({
+  cmd = {
+    'clangd',
+    '--background-index',
+    '--query-driver=/usr/bin/arm-none-eabi-*',
+  },
+})
