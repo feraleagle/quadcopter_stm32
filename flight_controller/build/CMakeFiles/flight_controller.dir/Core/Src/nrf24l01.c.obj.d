@@ -1,5 +1,6 @@
-CMakeFiles/flight_controller.dir/Core/Src/main.c.obj: \
- /home/eagle/programming/github_projects/quadcopter/flight_controller/Core/Src/main.c \
+CMakeFiles/flight_controller.dir/Core/Src/nrf24l01.c.obj: \
+ /home/eagle/programming/github_projects/quadcopter/flight_controller/Core/Src/nrf24l01.c \
+ /home/eagle/programming/github_projects/quadcopter/flight_controller/cmake/stm32cubemx/../../Core/Inc/nrf24l01.h \
  /home/eagle/programming/github_projects/quadcopter/flight_controller/cmake/stm32cubemx/../../Core/Inc/main.h \
  /home/eagle/programming/github_projects/quadcopter/flight_controller/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  /home/eagle/programming/github_projects/quadcopter/flight_controller/cmake/stm32cubemx/../../Core/Inc/stm32f4xx_hal_conf.h \
@@ -37,8 +38,4 @@ CMakeFiles/flight_controller.dir/Core/Src/main.c.obj: \
  /home/eagle/programming/github_projects/quadcopter/flight_controller/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h \
  /home/eagle/programming/github_projects/quadcopter/flight_controller/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
  /home/eagle/programming/github_projects/quadcopter/flight_controller/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h \
- /home/eagle/programming/github_projects/quadcopter/flight_controller/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
- /home/eagle/programming/github_projects/quadcopter/flight_controller/cmake/stm32cubemx/../../Drivers/CMSIS/Include/cmsis_gcc.h \
- /home/eagle/programming/github_projects/quadcopter/flight_controller/cmake/stm32cubemx/../../Core/Inc/nrf24l01.h \
- /home/eagle/programming/github_projects/quadcopter/flight_controller/cmake/stm32cubemx/../../Core/Inc/main.h \
- /home/eagle/programming/github_projects/quadcopter/flight_controller/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f411xe.h
+ /home/eagle/programming/github_projects/quadcopter/flight_controller/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h

@@ -108,12 +108,12 @@ cmake/stm32cubemx/clean: cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/clean
 CMakeFiles/flight_controller.dir/all: cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/flight_controller.dir/build.make CMakeFiles/flight_controller.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/flight_controller.dir/build.make CMakeFiles/flight_controller.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/eagle/programming/github_projects/quadcopter/flight_controller/build/CMakeFiles --progress-num=19,20,21,22,23,24,25 "Built target flight_controller"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/eagle/programming/github_projects/quadcopter/flight_controller/build/CMakeFiles --progress-num=19,20,21,22,23,24,25,26 "Built target flight_controller"
 .PHONY : CMakeFiles/flight_controller.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/flight_controller.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eagle/programming/github_projects/quadcopter/flight_controller/build/CMakeFiles 25
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eagle/programming/github_projects/quadcopter/flight_controller/build/CMakeFiles 26
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/flight_controller.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eagle/programming/github_projects/quadcopter/flight_controller/build/CMakeFiles 0
 .PHONY : CMakeFiles/flight_controller.dir/rule
@@ -125,7 +125,7 @@ flight_controller: CMakeFiles/flight_controller.dir/rule
 # codegen rule for target.
 CMakeFiles/flight_controller.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/flight_controller.dir/build.make CMakeFiles/flight_controller.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/eagle/programming/github_projects/quadcopter/flight_controller/build/CMakeFiles --progress-num=19,20,21,22,23,24,25 "Finished codegen for target flight_controller"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/eagle/programming/github_projects/quadcopter/flight_controller/build/CMakeFiles --progress-num=19,20,21,22,23,24,25,26 "Finished codegen for target flight_controller"
 .PHONY : CMakeFiles/flight_controller.dir/codegen
 
 # clean rule for target.
@@ -145,7 +145,7 @@ CMakeFiles/flash.dir/all: CMakeFiles/flight_controller.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/flash.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eagle/programming/github_projects/quadcopter/flight_controller/build/CMakeFiles 25
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eagle/programming/github_projects/quadcopter/flight_controller/build/CMakeFiles 26
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/flash.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eagle/programming/github_projects/quadcopter/flight_controller/build/CMakeFiles 0
 .PHONY : CMakeFiles/flash.dir/rule

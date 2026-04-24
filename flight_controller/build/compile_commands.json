@@ -7,6 +7,12 @@
 },
 {
   "directory": "/home/eagle/programming/github_projects/quadcopter/flight_controller/build",
+  "command": "/usr/bin/arm-none-eabi-gcc -DDEBUG -DSTM32F411xE -DUSE_HAL_DRIVER -I/home/eagle/programming/github_projects/quadcopter/flight_controller/cmake/stm32cubemx/../../Core/Inc -I/home/eagle/programming/github_projects/quadcopter/flight_controller/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -I/home/eagle/programming/github_projects/quadcopter/flight_controller/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/eagle/programming/github_projects/quadcopter/flight_controller/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/eagle/programming/github_projects/quadcopter/flight_controller/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard -fdata-sections -ffunction-sections -o CMakeFiles/flight_controller.dir/Core/Src/nrf24l01.c.obj -c /home/eagle/programming/github_projects/quadcopter/flight_controller/Core/Src/nrf24l01.c",
+  "file": "/home/eagle/programming/github_projects/quadcopter/flight_controller/Core/Src/nrf24l01.c",
+  "output": "CMakeFiles/flight_controller.dir/Core/Src/nrf24l01.c.obj"
+},
+{
+  "directory": "/home/eagle/programming/github_projects/quadcopter/flight_controller/build",
   "command": "/usr/bin/arm-none-eabi-gcc -DDEBUG -DSTM32F411xE -DUSE_HAL_DRIVER -I/home/eagle/programming/github_projects/quadcopter/flight_controller/cmake/stm32cubemx/../../Core/Inc -I/home/eagle/programming/github_projects/quadcopter/flight_controller/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -I/home/eagle/programming/github_projects/quadcopter/flight_controller/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/eagle/programming/github_projects/quadcopter/flight_controller/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/eagle/programming/github_projects/quadcopter/flight_controller/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard -fdata-sections -ffunction-sections -o CMakeFiles/flight_controller.dir/Core/Src/stm32f4xx_it.c.obj -c /home/eagle/programming/github_projects/quadcopter/flight_controller/Core/Src/stm32f4xx_it.c",
   "file": "/home/eagle/programming/github_projects/quadcopter/flight_controller/Core/Src/stm32f4xx_it.c",
   "output": "CMakeFiles/flight_controller.dir/Core/Src/stm32f4xx_it.c.obj"

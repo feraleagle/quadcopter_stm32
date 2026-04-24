@@ -1,0 +1,8 @@
+Transciever Side
+    NRF24l01
+        -> MOSI PA7
+        -> MISO PA6
+        -> SCK  PA5
+        -> EXTI PB0
+        -> CE   PB1
+        -> CSN  PB2

@@ -31,6 +31,7 @@ set(CMAKE_ASM_TARGET_INCLUDE_PATH
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/eagle/programming/github_projects/quadcopter/flight_controller/Core/Src/main.c" "CMakeFiles/flight_controller.dir/Core/Src/main.c.obj" "gcc" "CMakeFiles/flight_controller.dir/Core/Src/main.c.obj.d"
+  "/home/eagle/programming/github_projects/quadcopter/flight_controller/Core/Src/nrf24l01.c" "CMakeFiles/flight_controller.dir/Core/Src/nrf24l01.c.obj" "gcc" "CMakeFiles/flight_controller.dir/Core/Src/nrf24l01.c.obj.d"
   "/home/eagle/programming/github_projects/quadcopter/flight_controller/Core/Src/stm32f4xx_hal_msp.c" "CMakeFiles/flight_controller.dir/Core/Src/stm32f4xx_hal_msp.c.obj" "gcc" "CMakeFiles/flight_controller.dir/Core/Src/stm32f4xx_hal_msp.c.obj.d"
   "/home/eagle/programming/github_projects/quadcopter/flight_controller/Core/Src/stm32f4xx_it.c" "CMakeFiles/flight_controller.dir/Core/Src/stm32f4xx_it.c.obj" "gcc" "CMakeFiles/flight_controller.dir/Core/Src/stm32f4xx_it.c.obj.d"
   "/home/eagle/programming/github_projects/quadcopter/flight_controller/Core/Src/syscalls.c" "CMakeFiles/flight_controller.dir/Core/Src/syscalls.c.obj" "gcc" "CMakeFiles/flight_controller.dir/Core/Src/syscalls.c.obj.d"

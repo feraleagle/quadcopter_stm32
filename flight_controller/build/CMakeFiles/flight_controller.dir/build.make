@@ -86,10 +86,24 @@ CMakeFiles/flight_controller.dir/Core/Src/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/flight_controller.dir/Core/Src/main.c.s"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/eagle/programming/github_projects/quadcopter/flight_controller/Core/Src/main.c -o CMakeFiles/flight_controller.dir/Core/Src/main.c.s
 
+CMakeFiles/flight_controller.dir/Core/Src/nrf24l01.c.obj: CMakeFiles/flight_controller.dir/flags.make
+CMakeFiles/flight_controller.dir/Core/Src/nrf24l01.c.obj: /home/eagle/programming/github_projects/quadcopter/flight_controller/Core/Src/nrf24l01.c
+CMakeFiles/flight_controller.dir/Core/Src/nrf24l01.c.obj: CMakeFiles/flight_controller.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/eagle/programming/github_projects/quadcopter/flight_controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/flight_controller.dir/Core/Src/nrf24l01.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/flight_controller.dir/Core/Src/nrf24l01.c.obj -MF CMakeFiles/flight_controller.dir/Core/Src/nrf24l01.c.obj.d -o CMakeFiles/flight_controller.dir/Core/Src/nrf24l01.c.obj -c /home/eagle/programming/github_projects/quadcopter/flight_controller/Core/Src/nrf24l01.c
+
+CMakeFiles/flight_controller.dir/Core/Src/nrf24l01.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/flight_controller.dir/Core/Src/nrf24l01.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/eagle/programming/github_projects/quadcopter/flight_controller/Core/Src/nrf24l01.c > CMakeFiles/flight_controller.dir/Core/Src/nrf24l01.c.i
+
+CMakeFiles/flight_controller.dir/Core/Src/nrf24l01.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/flight_controller.dir/Core/Src/nrf24l01.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/eagle/programming/github_projects/quadcopter/flight_controller/Core/Src/nrf24l01.c -o CMakeFiles/flight_controller.dir/Core/Src/nrf24l01.c.s
+
 CMakeFiles/flight_controller.dir/Core/Src/stm32f4xx_it.c.obj: CMakeFiles/flight_controller.dir/flags.make
 CMakeFiles/flight_controller.dir/Core/Src/stm32f4xx_it.c.obj: /home/eagle/programming/github_projects/quadcopter/flight_controller/Core/Src/stm32f4xx_it.c
 CMakeFiles/flight_controller.dir/Core/Src/stm32f4xx_it.c.obj: CMakeFiles/flight_controller.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/eagle/programming/github_projects/quadcopter/flight_controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/flight_controller.dir/Core/Src/stm32f4xx_it.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/eagle/programming/github_projects/quadcopter/flight_controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/flight_controller.dir/Core/Src/stm32f4xx_it.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/flight_controller.dir/Core/Src/stm32f4xx_it.c.obj -MF CMakeFiles/flight_controller.dir/Core/Src/stm32f4xx_it.c.obj.d -o CMakeFiles/flight_controller.dir/Core/Src/stm32f4xx_it.c.obj -c /home/eagle/programming/github_projects/quadcopter/flight_controller/Core/Src/stm32f4xx_it.c
 
 CMakeFiles/flight_controller.dir/Core/Src/stm32f4xx_it.c.i: cmake_force
@@ -103,7 +117,7 @@ CMakeFiles/flight_controller.dir/Core/Src/stm32f4xx_it.c.s: cmake_force
 CMakeFiles/flight_controller.dir/Core/Src/stm32f4xx_hal_msp.c.obj: CMakeFiles/flight_controller.dir/flags.make
 CMakeFiles/flight_controller.dir/Core/Src/stm32f4xx_hal_msp.c.obj: /home/eagle/programming/github_projects/quadcopter/flight_controller/Core/Src/stm32f4xx_hal_msp.c
 CMakeFiles/flight_controller.dir/Core/Src/stm32f4xx_hal_msp.c.obj: CMakeFiles/flight_controller.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/eagle/programming/github_projects/quadcopter/flight_controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/flight_controller.dir/Core/Src/stm32f4xx_hal_msp.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/eagle/programming/github_projects/quadcopter/flight_controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/flight_controller.dir/Core/Src/stm32f4xx_hal_msp.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/flight_controller.dir/Core/Src/stm32f4xx_hal_msp.c.obj -MF CMakeFiles/flight_controller.dir/Core/Src/stm32f4xx_hal_msp.c.obj.d -o CMakeFiles/flight_controller.dir/Core/Src/stm32f4xx_hal_msp.c.obj -c /home/eagle/programming/github_projects/quadcopter/flight_controller/Core/Src/stm32f4xx_hal_msp.c
 
 CMakeFiles/flight_controller.dir/Core/Src/stm32f4xx_hal_msp.c.i: cmake_force
@@ -117,7 +131,7 @@ CMakeFiles/flight_controller.dir/Core/Src/stm32f4xx_hal_msp.c.s: cmake_force
 CMakeFiles/flight_controller.dir/Core/Src/sysmem.c.obj: CMakeFiles/flight_controller.dir/flags.make
 CMakeFiles/flight_controller.dir/Core/Src/sysmem.c.obj: /home/eagle/programming/github_projects/quadcopter/flight_controller/Core/Src/sysmem.c
 CMakeFiles/flight_controller.dir/Core/Src/sysmem.c.obj: CMakeFiles/flight_controller.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/eagle/programming/github_projects/quadcopter/flight_controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/flight_controller.dir/Core/Src/sysmem.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/eagle/programming/github_projects/quadcopter/flight_controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/flight_controller.dir/Core/Src/sysmem.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/flight_controller.dir/Core/Src/sysmem.c.obj -MF CMakeFiles/flight_controller.dir/Core/Src/sysmem.c.obj.d -o CMakeFiles/flight_controller.dir/Core/Src/sysmem.c.obj -c /home/eagle/programming/github_projects/quadcopter/flight_controller/Core/Src/sysmem.c
 
 CMakeFiles/flight_controller.dir/Core/Src/sysmem.c.i: cmake_force
@@ -131,7 +145,7 @@ CMakeFiles/flight_controller.dir/Core/Src/sysmem.c.s: cmake_force
 CMakeFiles/flight_controller.dir/Core/Src/syscalls.c.obj: CMakeFiles/flight_controller.dir/flags.make
 CMakeFiles/flight_controller.dir/Core/Src/syscalls.c.obj: /home/eagle/programming/github_projects/quadcopter/flight_controller/Core/Src/syscalls.c
 CMakeFiles/flight_controller.dir/Core/Src/syscalls.c.obj: CMakeFiles/flight_controller.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/eagle/programming/github_projects/quadcopter/flight_controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/flight_controller.dir/Core/Src/syscalls.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/eagle/programming/github_projects/quadcopter/flight_controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/flight_controller.dir/Core/Src/syscalls.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/flight_controller.dir/Core/Src/syscalls.c.obj -MF CMakeFiles/flight_controller.dir/Core/Src/syscalls.c.obj.d -o CMakeFiles/flight_controller.dir/Core/Src/syscalls.c.obj -c /home/eagle/programming/github_projects/quadcopter/flight_controller/Core/Src/syscalls.c
 
 CMakeFiles/flight_controller.dir/Core/Src/syscalls.c.i: cmake_force
@@ -144,7 +158,7 @@ CMakeFiles/flight_controller.dir/Core/Src/syscalls.c.s: cmake_force
 
 CMakeFiles/flight_controller.dir/startup_stm32f411xe.s.obj: CMakeFiles/flight_controller.dir/flags.make
 CMakeFiles/flight_controller.dir/startup_stm32f411xe.s.obj: /home/eagle/programming/github_projects/quadcopter/flight_controller/startup_stm32f411xe.s
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/eagle/programming/github_projects/quadcopter/flight_controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building ASM object CMakeFiles/flight_controller.dir/startup_stm32f411xe.s.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/eagle/programming/github_projects/quadcopter/flight_controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building ASM object CMakeFiles/flight_controller.dir/startup_stm32f411xe.s.obj"
 	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/flight_controller.dir/startup_stm32f411xe.s.obj -c /home/eagle/programming/github_projects/quadcopter/flight_controller/startup_stm32f411xe.s
 
 CMakeFiles/flight_controller.dir/startup_stm32f411xe.s.i: cmake_force
@@ -158,6 +172,7 @@ CMakeFiles/flight_controller.dir/startup_stm32f411xe.s.s: cmake_force
 # Object files for target flight_controller
 flight_controller_OBJECTS = \
 "CMakeFiles/flight_controller.dir/Core/Src/main.c.obj" \
+"CMakeFiles/flight_controller.dir/Core/Src/nrf24l01.c.obj" \
 "CMakeFiles/flight_controller.dir/Core/Src/stm32f4xx_it.c.obj" \
 "CMakeFiles/flight_controller.dir/Core/Src/stm32f4xx_hal_msp.c.obj" \
 "CMakeFiles/flight_controller.dir/Core/Src/sysmem.c.obj" \
@@ -186,6 +201,7 @@ flight_controller_EXTERNAL_OBJECTS = \
 "/home/eagle/programming/github_projects/quadcopter/flight_controller/build/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj"
 
 flight_controller: CMakeFiles/flight_controller.dir/Core/Src/main.c.obj
+flight_controller: CMakeFiles/flight_controller.dir/Core/Src/nrf24l01.c.obj
 flight_controller: CMakeFiles/flight_controller.dir/Core/Src/stm32f4xx_it.c.obj
 flight_controller: CMakeFiles/flight_controller.dir/Core/Src/stm32f4xx_hal_msp.c.obj
 flight_controller: CMakeFiles/flight_controller.dir/Core/Src/sysmem.c.obj
@@ -211,7 +227,7 @@ flight_controller: cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/
 flight_controller: cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
 flight_controller: CMakeFiles/flight_controller.dir/build.make
 flight_controller: CMakeFiles/flight_controller.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/eagle/programming/github_projects/quadcopter/flight_controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking C executable flight_controller"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/eagle/programming/github_projects/quadcopter/flight_controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking C executable flight_controller"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/flight_controller.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

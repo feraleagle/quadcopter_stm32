@@ -1,154 +1,95 @@
-/*
- * See documentation at https://nRF24.github.io/RF24
- * See License information at root directory of this library
- * Author: Brendan Doherty (2bndy5)
- */
-
-/**
- * A simple example of sending data from 1 nRF24L01 transceiver to another.
- *
- * This example was written to be used on 2 devices acting as "nodes".
- * Use the Serial Monitor to change each node's behavior.
- */
 #include <SPI.h>
-#include "printf.h"
-#include "RF24.h"
+#include <nRF24L01.h>
+#include <RF24.h>
 
-#define CE_PIN 7
-#define CSN_PIN 8
-// instantiate an object for the nRF24L01 transceiver
+/* --- Pin Definitions --- */
+#define CE_PIN   7
+#define CSN_PIN  8
+
+/* --- Joystick/Switch Pins --- */
+#define PIN_J1X  A0
+#define PIN_J1Y  A1
+#define PIN_J2X  A2
+#define PIN_J2Y  A3
+
+#define PIN_SW1  2
+#define PIN_SW2  3
+#define PIN_SW3  4
+#define PIN_SW4  5
+
+/* --- The 16-Byte Struct (Matches STM32 EXACTLY) --- */
+struct __attribute__((packed)) RC_Packet_t {
+    uint8_t joy1_x;
+    uint8_t joy1_y;
+    uint8_t joy2_x;
+    uint8_t joy2_y;
+    uint8_t sw1;
+    uint8_t sw2;
+    uint8_t sw3;
+    uint8_t sw4;
+    uint16_t packet_id;
+    uint8_t failsafe_flag;
+    uint8_t reserved[5]; 
+};
+
 RF24 radio(CE_PIN, CSN_PIN);
-
-// Let these addresses be used for the pair
-uint8_t address[][6] = { "1Node", "2Node" };
-// It is very helpful to think of an address as a path instead of as
-// an identifying device destination
-
-// to use different addresses on a pair of radios, we need a variable to
-// uniquely identify which address this radio will use to transmit
-bool radioNumber = 1;  // 0 uses address[0] to transmit, 1 uses address[1] to transmit
-
-// Used to control whether this node is sending or receiving
-bool role = true;  // true = TX role, false = RX role
-
-// For this example, we'll be using a payload containing
-// a single float number that will be incremented
-// on every successful transmission
-float payload = 0.0;
+RC_Packet_t tx_data;
+uint16_t id_count = 0;
+const byte address[5] = {0xE7, 0xE7, 0xFF, 0x11, 0xE2};
 
 void setup() {
+    Serial.begin(115200);
+    
+    /* Configure Switches with Internal Pull-ups */
+    pinMode(PIN_SW1, INPUT_PULLUP);
+    pinMode(PIN_SW2, INPUT_PULLUP);
+    pinMode(PIN_SW3, INPUT_PULLUP);
+    pinMode(PIN_SW4, INPUT_PULLUP);
 
-  Serial.begin(115200);
-  while (!Serial) {
-    // some boards need to wait to ensure access to serial over USB
-  }
+    if (!radio.begin()) {
+        Serial.println("nRF24 Error!");
+        while (1);
+    }
 
-  // initialize the transceiver on the SPI bus
-  if (!radio.begin()) {
-    Serial.println(F("radio hardware is not responding!!"));
-    while (1) {}  // hold in infinite loop
-  }
-
-  // print example's introductory prompt
-  Serial.println(F("RF24/examples/GettingStarted"));
-
-  // To set the radioNumber via the Serial monitor on startup
-  Serial.println(F("Which radio is this? Enter '0' or '1'. Defaults to '0'"));
-  while (!Serial.available()) {
-    // wait for user input
-  }
-  char input = Serial.parseInt();
-  radioNumber = input == 1;
-  Serial.print(F("radioNumber = "));
-  Serial.println((int)radioNumber);
-
-  // role variable is hardcoded to RX behavior, inform the user of this
-  Serial.println(F("*** PRESS 'T' to begin transmitting to the other node"));
-
-  // Set the PA Level low to try preventing power supply related problems
-  // because these examples are likely run with nodes in close proximity to
-  // each other.
-  radio.setPALevel(RF24_PA_LOW);  // RF24_PA_MAX is default.
-
-  // save on transmission time by setting the radio to only transmit the
-  // number of bytes we need to transmit a float
-  radio.setPayloadSize(sizeof(payload));  // float datatype occupies 4 bytes
-
-  // set the TX address of the RX node for use on the TX pipe (pipe 0)
-  radio.stopListening(address[radioNumber]);  // put radio in TX mode
-
-  // set the RX address of the TX node into a RX pipe
-  radio.openReadingPipe(1, address[!radioNumber]);  // using pipe 1
-
-  // additional setup specific to the node's RX role
-  if (!role) {
-    radio.startListening();  // put radio in RX mode
-  }
-
-  // For debugging info
-  // printf_begin();             // needed only once for printing details
-  // radio.printDetails();       // (smaller) function that prints raw register values
-  // radio.printPrettyDetails(); // (larger) function that prints human readable data
-
-}  // setup
+    radio.setChannel(100);
+    radio.setDataRate(RF24_250KBPS);
+    radio.setCRCLength(RF24_CRC_16);
+    radio.setPayloadSize(16);
+    radio.setAutoAck(false); 
+    radio.openWritingPipe(address);
+    radio.stopListening();
+    
+    Serial.println("Transmitter Ready...");
+}
 
 void loop() {
+    /* 1. Read Joysticks (0-1023) and map to (0-255) */
+    tx_data.joy1_x = map(analogRead(PIN_J1X), 0, 1023, 0, 255);
+    tx_data.joy1_y = map(analogRead(PIN_J1Y), 0, 1023, 0, 255);
+    tx_data.joy2_x = map(analogRead(PIN_J2X), 0, 1023, 0, 255);
+    tx_data.joy2_y = map(analogRead(PIN_J2Y), 0, 1023, 0, 255);
 
-  if (role) {
-    // This device is a TX node
+    /* 2. Read Switches (Invert because of PULLUP: Pressed = 0, so ! makes it 1) */
+    tx_data.sw1 = !digitalRead(PIN_SW1);
+    tx_data.sw2 = !digitalRead(PIN_SW2);
+    tx_data.sw3 = !digitalRead(PIN_SW3);
+    tx_data.sw4 = !digitalRead(PIN_SW4);
 
-    unsigned long start_timer = micros();                // start the timer
-    bool report = radio.write(&payload, sizeof(float));  // transmit & save the report
-    unsigned long end_timer = micros();                  // end the timer
+    /* 3. System Data */
+    tx_data.packet_id = id_count++;
+    tx_data.failsafe_flag = 0;
 
-    if (report) {
-      Serial.print(F("Transmission successful! "));  // payload was delivered
-      Serial.print(F("Time to transmit = "));
-      Serial.print(end_timer - start_timer);  // print the timer result
-      Serial.print(F(" us. Sent: "));
-      Serial.println(payload);  // print payload sent
-      payload += 0.01;          // increment float payload
-    } else {
-      Serial.println(F("Transmission failed or timed out"));  // payload was not delivered
+    /* 4. Send Packet */
+    radio.write(&tx_data, sizeof(tx_data));
+
+    /* 5. Serial Debug (Optional - slow down to 10Hz) */
+    static uint32_t last_debug = 0;
+    if (millis() - last_debug > 200) {
+        Serial.print("J1: "); Serial.print(tx_data.joy1_x);
+        Serial.print(","); Serial.print(tx_data.joy1_y);
+        Serial.print(" | SW1: "); Serial.println(tx_data.sw1);
+        last_debug = millis();
     }
 
-    // to make this example readable in the serial monitor
-    delay(1000);  // slow transmissions down by 1 second
-
-  } else {
-    // This device is a RX node
-
-    uint8_t pipe;
-    if (radio.available(&pipe)) {              // is there a payload? get the pipe number that received it
-      uint8_t bytes = radio.getPayloadSize();  // get the size of the payload
-      radio.read(&payload, bytes);             // fetch payload from FIFO
-      Serial.print(F("Received "));
-      Serial.print(bytes);  // print the size of the payload
-      Serial.print(F(" bytes on pipe "));
-      Serial.print(pipe);  // print the pipe number
-      Serial.print(F(": "));
-      Serial.println(payload);  // print the payload's value
-    }
-  }  // role
-
-  if (Serial.available()) {
-    // change the role via the serial monitor
-
-    char c = toupper(Serial.read());
-    if (c == 'T' && !role) {
-      // Become the TX node
-
-      role = true;
-      Serial.println(F("*** CHANGING TO TRANSMIT ROLE -- PRESS 'R' TO SWITCH BACK"));
-      radio.stopListening();
-
-    } else if (c == 'R' && role) {
-      // Become the RX node
-
-      role = false;
-      Serial.println(F("*** CHANGING TO RECEIVE ROLE -- PRESS 'T' TO SWITCH BACK"));
-      radio.startListening();
-    }
-  }
-
-}  // loop
+    delay(20); // Send at ~50Hz for smooth flight/control
+}
