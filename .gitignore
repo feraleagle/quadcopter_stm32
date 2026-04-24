@@ -7,7 +7,6 @@
 *.hex
 *.map
 *.list
-checklist
 
 # --- CMake / Compilation Junk ---
 CMakeCache.txt
