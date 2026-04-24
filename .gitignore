@@ -1,0 +1,36 @@
+# --- Build Artifacts ---
+**/build/
+**/bin/
+**/obj/
+*.elf
+*.bin
+*.hex
+*.map
+*.list
+checklist
+
+# --- CMake / Compilation Junk ---
+CMakeCache.txt
+CMakeFiles/
+CMakeConfigureLog.yaml
+cmake_install.cmake
+Makefile
+compile_commands.json
+.cmake/
+_deps/
+
+# --- IDE Specific (VS Code / STM32CubeIDE) ---
+.settings/
+.project
+.cproject
+.mxproject
+.vscode/
+*.launch
+
+# --- Arduino Junk ---
+remote_controller/build/
+remote_controller/libraries/
+
+# --- System / OS Junk ---
+.DS_Store
+Thumbs.db
