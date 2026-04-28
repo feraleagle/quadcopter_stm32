@@ -22,6 +22,7 @@
 #define NRF_REG_EN_AA 0x01     /* ADD: auto-acknowledgment register */
 #define NRF_REG_EN_RXADDR 0x02 /* ADD: enable RX pipe addresses */
 #define NRF_REG_SETUP_AW 0x03
+#define NRF_REG_SETUP_RETR 0x04
 #define NRF_REG_RF_CH 0x05
 #define NRF_REG_RF_SETUP 0x06
 #define NRF_REG_STATUS 0x07
@@ -29,6 +30,8 @@
 #define NRF_REG_TX_ADDR 0x10
 #define NRF_REG_RX_PW_P0 0x11
 #define NRF_REG_FIFO_STATUS 0x17 /* ADD: useful for debugging TX/RX FIFO state */
+#define NRF_REG_DYNPD 0x1C
+#define NRF_REG_FEATURE 0x1D
 
 /* =========================================================
  *  CONFIG REGISTER BIT MASKS (for readability)
@@ -52,29 +55,42 @@
 #define NRF_PAYLOAD_SIZE 16
 
 /* =========================================================
- *  RC PACKET STRUCT
+ *  RC PACKET STRUCT [16 Bytes]
  *  __attribute__((packed)) is critical: prevents padding
  *  so raw SPI byte buffer maps directly to struct fields.
- *  Total: 1+1+1+1+1+1+1+1+2+1+5 = 16 bytes
  * ========================================================= */
 typedef struct __attribute__((packed)) {
-        uint8_t joy1_x;
-        uint8_t joy1_y;
-        uint8_t joy2_x;
-        uint8_t joy2_y;
-        uint8_t sw1;
-        uint8_t sw2;
-        uint8_t sw3;
-        uint8_t sw4;
-        uint16_t packet_id; /* 2 bytes - ensure endian match with Arduino */
+        uint16_t joy1_x;
+        uint16_t joy1_y;
+        uint16_t joy2_x;
+        uint16_t joy2_y;
+
+        uint8_t fly_mode;
+        uint8_t altitudeHold_flag;
         uint8_t failsafe_flag;
-        uint8_t reserved[5];
+        uint16_t packet_id;
+
+        uint8_t reserved[2];
+        uint8_t checksum;
 } RC_Packet_t;
+
+/* =========================================================
+ *  RC ACK PACKET STRUCT [4 Bytes]
+ *  __attribute__((packed)) is critical: prevents padding
+ *  so raw SPI byte buffer maps directly to struct fields.
+ * ========================================================= */
+typedef struct __attribute__((packed)) {
+        uint8_t packet_status;
+        uint8_t battery;
+        uint8_t sig_strength;
+        uint8_t flags;
+} ACK_Payload_t;
 
 /* =========================================================
  *  SHARED VARIABLES (defined in nrf24l01.c)
  * ========================================================= */
 extern volatile RC_Packet_t current_rc_data;
+extern volatile ACK_Payload_t current_ack_payload;
 extern volatile uint32_t last_packet_time;
 
 /* =========================================================
@@ -89,6 +105,8 @@ void NRF24_WriteReg(uint8_t reg, uint8_t data);
 void NRF24_WriteAddr(uint8_t reg, uint8_t* addr);
 void NRF24_ReadPayload(uint8_t* data);
 void NRF24_Send(uint8_t* data);
+uint8_t NRF24_IsHardwareAlive(void);
+void NRF24_SendACK_Payload();
 
 /* ADD: extracted RX handler - called from BOTH ISR and polling fallback */
 void NRF24_HandleRX(void);

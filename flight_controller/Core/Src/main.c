@@ -16,6 +16,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "nrf24l01.h"
+#include "stm32f4xx_hal.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -103,14 +104,16 @@ int main(void) {
         uint8_t ok_msg[] = ">>> NRF24 SUCCESS: Radio configured. CONFIG=0x0F\r\n";
         HAL_UART_Transmit(&huart1, ok_msg, sizeof(ok_msg) - 1, 100);
     } else {
-        uint8_t err_msg[] = "!!! NRF24 ERROR: SPI failed. Check wiring & prescaler.\r\n";
-        HAL_UART_Transmit(&huart1, err_msg, sizeof(err_msg) - 1, 100);
-        /* Optionally halt here during bring-up: */
-        /* while(1); */
+        while (NRF24_ReadReg(NRF_REG_CONFIG) != 0x0F) {
+            uint8_t err_msg[] = "!!! NRF24 ERROR: SPI failed. Check wiring & prescaler.\r";
+            HAL_UART_Transmit(&huart1, err_msg, sizeof(err_msg) - 1, 100);
+        }
     }
 
     uint32_t last_display_time = 0;
     uint32_t last_heartbeat = 0;
+    current_ack_payload.battery = 100;
+    uint8_t nrf_stopped[] = "NRF Module Not Responding \r";
     /* USER CODE END 2 */
 
     /* Infinite loop */
@@ -120,18 +123,12 @@ int main(void) {
 
         /* USER CODE BEGIN 3 */
         /* C. TIMED TELEMETRY */
-        if (HAL_GetTick() - last_display_time > 100) {
-            // Just print the data. If values change when you move the Arduino stick,
-            // INTERRUPTS ARE WORKING!
+        if (NRF24_IsHardwareAlive()) {
             Debug_Print_RC();
-            last_display_time = HAL_GetTick();
+        } else {
+            HAL_UART_Transmit(&huart1, nrf_stopped, sizeof(nrf_stopped) - 1, 100);
         }
-
-        /* D. HEARTBEAT LED */
-        if (HAL_GetTick() - last_heartbeat > 1000) {
-            HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
-            last_heartbeat = HAL_GetTick();
-        }
+        HAL_Delay(100);
     }
     /* USER CODE END 3 */
 }
