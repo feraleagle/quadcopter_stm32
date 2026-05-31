@@ -1,7 +1,0 @@
-/home/eagle/programming/github_projects/quadcopter/flight_controller/build/CMakeFiles/flight_controller.dir
-/home/eagle/programming/github_projects/quadcopter/flight_controller/build/CMakeFiles/flash.dir
-/home/eagle/programming/github_projects/quadcopter/flight_controller/build/CMakeFiles/edit_cache.dir
-/home/eagle/programming/github_projects/quadcopter/flight_controller/build/CMakeFiles/rebuild_cache.dir
-/home/eagle/programming/github_projects/quadcopter/flight_controller/build/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir
-/home/eagle/programming/github_projects/quadcopter/flight_controller/build/cmake/stm32cubemx/CMakeFiles/edit_cache.dir
-/home/eagle/programming/github_projects/quadcopter/flight_controller/build/cmake/stm32cubemx/CMakeFiles/rebuild_cache.dir

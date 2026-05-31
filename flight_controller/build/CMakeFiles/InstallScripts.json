@@ -1,8 +1,0 @@
-{
-	"InstallScripts" : 
-	[
-		"/home/eagle/programming/github_projects/quadcopter/flight_controller/build/cmake_install.cmake",
-		"/home/eagle/programming/github_projects/quadcopter/flight_controller/build/cmake/stm32cubemx/cmake_install.cmake"
-	],
-	"Parallel" : false
-}
